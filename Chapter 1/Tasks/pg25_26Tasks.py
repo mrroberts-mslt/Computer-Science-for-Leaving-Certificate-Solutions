@@ -1,4 +1,4 @@
-#solutions page17-18
+#solutions page25-26
 #Task1
 nameArtist = input("Enter your fav artist:")
 compliment = " is Brilliant"
