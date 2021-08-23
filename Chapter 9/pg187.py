@@ -1,3 +1,5 @@
+#below is a nested conditional
+#copy the code then change it to use an elif and a boolean operator (or, and, not)
 age = int(input("Please enter your age:"))
 hasProvisional = input("do you have a provisional licence? (y/n)? ")
 #First outer if statement
