@@ -1,4 +1,4 @@
-#tasksP25
+#tasksP33-34
 #develop a program to add up the numbers between 1000 and 1500. use a while loop
 
 #task1
