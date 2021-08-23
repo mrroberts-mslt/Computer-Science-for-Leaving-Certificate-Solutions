@@ -1,3 +1,4 @@
+# see https://realpython.com/python-square-root-function/
 import math
 
 a = int(input("enter size of stick A:"))
