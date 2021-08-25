@@ -1,9 +1,8 @@
 rowVal = int(input("Enter number of rows: "))
 
-numPrinted = 0
-
-while numPrinted <= rowVal:
-    spaces = "\t"  
-    print ((numPrinted + spaces) * "*")
-    numPrinted += 1
-    spaces +=1
+for index in range (rowVal):
+    for stars in range (rowVal):
+        space = rowVal * " "
+        print(space, stars * "*")
+        rowVal-=1
+    print()
