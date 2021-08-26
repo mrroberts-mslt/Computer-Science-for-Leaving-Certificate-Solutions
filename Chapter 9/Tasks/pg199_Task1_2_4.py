@@ -12,6 +12,7 @@ def piVal():
 piVal()
 
 #task4
+#An argument is the value that is sent to the function when it is called.
 def myFunction(baseNum, indexNum):
   print(baseNum ** indexNum)
 
