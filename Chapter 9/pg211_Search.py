@@ -26,5 +26,30 @@ def linearSearch(listIn,key):
     return -1
         #print("Key found in :", [i])
 print(linearSearch(myList,17))
+
+######################binary search##########################
+
+#first order it
+myList.sort()
+
+
+def binarySearch(listIn, key):
+    first = 0
+    last = len(listIn)-1
+    while (last - first) >=0:
+        #get the position of the middle item in the list (should be 3) as floor division gives the lowest whole number
+        middle = first + ((last - first)//2)
+        #check if this is the value
+        if listIn[middle] == key:
+            return middle
+        #if the key is less than middle value set the last value to 1 position below middle
+        elif key < listIn[middle]:
+            last = middle - 1
+        #if the key is more than middle value set the last value to 1 position more than middle
+        else:
+            first = middle +1
+    return -1
+
+print(binarySearch(myList,31))
     
         
