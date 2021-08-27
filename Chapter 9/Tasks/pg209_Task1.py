@@ -1,7 +1,11 @@
 def fibonacci():
-  start = 0
+  term1 = 0
+  term2 = 1
+  count = 0
   for i in range(8):
-    num = start + [i]
-    start +=1
-    print(num)
+      result = term1+term2
+      term1 = term2
+      term2 = result
+      print(result)
+      
 fibonacci()
