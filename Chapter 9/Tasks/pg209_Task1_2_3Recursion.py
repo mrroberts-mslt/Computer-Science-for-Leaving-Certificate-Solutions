@@ -23,3 +23,12 @@ def fibRecur(n):
 number = 100
 for i in range (number):
     print(fibRecur(i))
+
+#task 3 add up sum of natural numbers with recursion
+def addUp(n):  
+    if n <=1:
+        return 1
+    else:
+        return n + addUp(n-1)
+number = 5
+print(addUp(number))
