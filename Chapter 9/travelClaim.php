@@ -1,4 +1,5 @@
 <?php 
+//You can hard code some values into these variables
 $tcn = '{aaa_participant_claim___tcn}';
 $type = '{aaa_participant_claim___participant_tutor}';
 $totalDist = '{aaa_participant_claim___total_distance}';
