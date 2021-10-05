@@ -27,6 +27,26 @@ def linearSearch(listIn,key):
         #print("Key found in :", [i])
 print(linearSearch(myList,17))
 
+#Linear search example 2
+
+def linearSearch(v, L):
+    i = 0
+    while i < len(L): # more?
+        if L[i] == v: # match?
+            return i # successful
+        i = i + 1
+    return i # unsuccessful
+
+keys = [15, 4, 41, 13, 24, 14, 12, 21]
+argument = int(input("Enter a target value: "))
+ 
+result = linearSearch(argument, keys)
+ 
+if (result != len(keys)):
+    print("%d found at position %d" %(argument, result))
+else:
+    print("%d not found. Return value is %d" %(argument, result))
+
 ######################binary search##########################
 
 #first order it
