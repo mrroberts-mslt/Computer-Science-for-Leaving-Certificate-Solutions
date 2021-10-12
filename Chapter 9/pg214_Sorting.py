@@ -1,4 +1,4 @@
-myList = [2, 4, 5, 7, 8, 9, 12, 14, 17, 19, 22, 25, 27, 28, 33, 37]
+myList = [85,24,63,45,17,31,96,50]
 for index in range(len(myList)-1):
   print (myList)
   nextMinValue = min(myList[index + 1:])
