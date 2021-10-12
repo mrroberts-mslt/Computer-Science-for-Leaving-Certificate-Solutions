@@ -15,7 +15,7 @@ print("Key location: ", location)
 #Use break to find first number then exit the loop
 # What if the number is not in the list?
 #        location = False
-      
+
 
 #Linear Search in function
 def linearSearch(listIn,key):
@@ -39,9 +39,9 @@ def linearSearch(v, L):
 
 keys = [15, 4, 41, 13, 24, 14, 12, 21]
 argument = int(input("Enter a target value: "))
- 
+
 result = linearSearch(argument, keys)
- 
+
 if (result != len(keys)):
     print("%d found at position %d" %(argument, result))
 else:
@@ -74,32 +74,30 @@ print(binarySearch(myList,31))
 
 #Binary Search 2
 def binary_search(v, L):
-#set the lowest index 
+#set the lowest index
     low = 0
 #set the highest index -1
     high = len(L)-1
- 
+
     while (low <= high):
 #floor divide to get a int
         mid = (low+high)//2
-#check if the value (14) at position mid (7) is equal to v    
+#check if the value (14) at position mid (7) is equal to v
         if L[mid] == v:
             return mid
         elif L[mid] < v:
             low = mid + 1
         else:
             high = mid - 1
-            
+
     return len(L)
 # Driver code ...
 keys = [2, 4, 5, 7, 8, 9, 12, 14, 17, 19, 22, 25, 27, 28, 33, 37]
 argument = int(input("Enter a target value: "))
- 
+
 result = binary_search(argument, keys)
 #check if result is not equal to 15 then the key has been found
 if (result != len(keys)):
     print("%d found at position %d" %(argument, result))
 else:
     print("%d not found. Return value is %d" %(argument, result))
-    
-        
