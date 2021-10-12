@@ -7,3 +7,4 @@ for index in range(len(myList)-1):
       myList[nextMinIndex] = myList[index]
       myList[index]= nextMinValue
 print(myList)
+hello
