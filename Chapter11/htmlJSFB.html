@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <button onclick="insertRecord()">
+    Insert Record</button>
+<script>
+function insertRecord(){
+  var myDB = firebase.database().ref();
+  var addRecord = myDB.child('patients').push();
+  record={
+    "firstName" : "Arya"
+    "lastName" : "Quill"
+    "phoneNum" : "0894444"
+    "dob" : "23/12/23"
+    "age" : "97"
+  };
+  addRecord.set(record);
+}
+</script>
+</body>
+</html>
