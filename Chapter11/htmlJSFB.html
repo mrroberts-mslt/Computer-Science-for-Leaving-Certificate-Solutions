@@ -19,5 +19,19 @@ function insertRecord(){
   addRecord.set(record);
 }
 </script>
+  
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
+  const firebaseConfig = {
+    apiKey: "AIzaSyCmTO9uwx5KqynE956cAJQ1bkxBnHHfkLU",
+    authDomain: "cosmic-kite-197416.firebaseapp.com",
+    databaseURL: "https://cosmic-kite-197416-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "cosmic-kite-197416",
+    storageBucket: "cosmic-kite-197416.appspot.com",
+    messagingSenderId: "466898772511",
+    appId: "1:466898772511:web:191b03624b52a4fb586b2a"
+  };
+  const app = initializeApp(firebaseConfig);
+</script>
 </body>
 </html>
