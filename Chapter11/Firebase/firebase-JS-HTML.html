@@ -69,7 +69,7 @@
   //const analytics = getAnalytics(app);
 
 //Add these lines to include the modules required for managing the database.
-//Child means 
+//Child means a subset of the database E.g. Students > RecordID (Name, Roll, Section, Gender)
   import {getDatabase,set,ref,get,child,update,remove}
   from "https://www.gstatic.com/firebasejs/9.4.1/firebase-database.js";
 //References
@@ -88,13 +88,15 @@
 
 //------------------Insert Data Function - use set module -------------------//
 function insertData(){
+//set makes the rollbox value the unique id if the same rollbox value is entered its overwritten
+//push will add a unique value to the DB
   set(ref(db, "TheStudents/"+ rollbox.value),{
+  //push(ref(db, "TheStudents/"),{
     NameofStu: namebox.value,
     RollNumber: rollbox.value,
     Section: secbox.value,
     Gender: genderbox.value
   })
-// ---- Sanity check with alert box  - also check your console log for errors in case ---- //
   .then(()=>
           {alert("Data stored successfully");
 })
@@ -103,7 +105,6 @@ function insertData(){
 
 });
 }
-
 //------------------Assign Events to buttons -------------------//
 // when insert button is clicked run the insertData function
 insertbtn.addEventListener("click", insertData);
