@@ -15,22 +15,22 @@
 <form>
     <div class="mb-3">
       <label>Name</label>
-      <input type="text" id="nameBox">
+      <input type="text" id="nameBox" class="form-control">
     </div>
 
     <div class="mb-3">
       <label>Roll number</label>
-      <input type="text" id="rollBox">
+      <input type="text" id="rollBox" class="form-control">
     </div>
 
     <div class="mb-3">
         <label>Section</label>
-        <input type="text" id="secBox">
+        <input type="text" id="secBox" class="form-control">
     </div>
 
     <div class="mb-3">
         <label>Gender</label>
-        <select id ="genderBox">
+        <select id ="genderBox" class="form-control">
           <option value="Male">Male</option>
           <option value="Female">Female</option>
         </select>
@@ -52,15 +52,16 @@
   //import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-analytics.js";
 
   //Heads UP!! note add databaseURL to the config this isnt in the copy paste version from FB.
+  //databaseURL: "ENTER YOUR URL",
   const firebaseConfig = {
-    apiKey: "AIzaSyAPpaRSxSJ5vcuMUSaMAJ41Djoppsph7Hc",
-    authDomain: "student-data-fbv9.firebaseapp.com",
-    databaseURL: "https://student-data-fbv9-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "student-data-fbv9",
-    storageBucket: "student-data-fbv9.appspot.com",
-    messagingSenderId: "1051403549237",
-    appId: "1:1051403549237:web:fa2b81a84f4ef9c2da4f7c",
-    measurementId: "G-2K3V23SZVD"
+    apiKey: "ENTER YOUR DATA",
+    authDomain: "ENTER YOUR DATA",
+    databaseURL: "ENTER YOUR URL",
+    projectId: "ENTER YOUR DATA",
+    storageBucket: "ENTER YOUR DATA",
+    messagingSenderId: "ENTER YOUR DATA",
+    appId: "ENTER YOUR DATA",
+    measurementId: "ENTER YOUR DATA"
   };
 
   // Initialize Firebase
@@ -92,6 +93,7 @@ function insertData(){
     Section: secbox.value,
     Gender: genderbox.value
   })
+// ---- Sanity check with alert box  - also check your console log for errors in case ---- //
   .then(()=>
           {alert("Data stored successfully");
 })
