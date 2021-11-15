@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Firebase V9 input</title>
+    <!-- CSS only -->
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  </head>
+<body>
+  <!-- Start of Form -->
+<div class="container">
+    <h1>Please fill out the form</h1>
+<form>
+    <div class="mb-3">
+      <label>Name</label>
+      <input type="text" id="nameBox" class="form-control">
+    </div>
+
+    <div class="mb-3">
+      <label>Roll number</label>
+      <input type="text" id="rollBox" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label>Section</label>
+        <input type="text" id="secBox" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label>Gender</label>
+        <select id ="genderBox" class="form-control">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+    </div>
+
+    <hr>
+    <button type="button" id="insertBtn" class="btn btn-primary">Insert</button>
+    <button type="button" id="updateBtn" class="btn btn-secondary">Update</button>
+    <button type="button" id="selectBtn" class="btn btn-warning">Select</button>
+    <button type="button" id="deleteBtn" class="btn btn-danger">Delete</button>
+
+    </form>
+
+    <hr>
+      <table class="table table-dark" align="center">
+      <thead>
+      <tr>
+      <th>Item</th>
+      <th>Name</th>
+      <th>Roll</th>
+      <th>Section</td>
+      <th>Gender</th>
+      </tr>
+      </thead>
+      <tbody id="tbody1">
+      </tbody>
+      </table>
+
+
+
+</div>
+
+<!-- End of Form -->
+<!--FB connection string -->
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-app.js";
+  //import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-analytics.js";
+
+  //Heads UP!! note add databaseURL to the config this isnt in the copy paste version from FB.
+  const firebaseConfig = {
+    apiKey: "AIzaSyAPpaRSxSJ5vcuMUSaMAJ41Djoppsph7Hc",
+    authDomain: "student-data-fbv9.firebaseapp.com",
+    databaseURL: "https://student-data-fbv9-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "student-data-fbv9",
+    storageBucket: "student-data-fbv9.appspot.com",
+    messagingSenderId: "1051403549237",
+    appId: "1:1051403549237:web:fa2b81a84f4ef9c2da4f7c",
+    measurementId: "G-2K3V23SZVD"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  //const analytics = getAnalytics(app);
+
+//Add these lines to include the modules required for managing the database.
+  import {getDatabase,set,ref,get,child,update,remove,push,increment,onValue}
+  from "https://www.gstatic.com/firebasejs/9.4.1/firebase-database.js";
+//References
+  const db = getDatabase();
+//make the form items into variables and capture their input by referecing the id
+  var namebox = document.getElementById("nameBox");
+  var rollbox = document.getElementById("rollBox");
+  var secbox = document.getElementById("secBox");
+  var genderbox = document.getElementById("genderBox");
+
+  //buttons
+  var insertbtn = document.getElementById("insertBtn");
+  var updatebtn = document.getElementById("updateBtn");
+  var selectbtn = document.getElementById("selectBtn");
+  var deletebtn = document.getElementById("deleteBtn");
+  var tablebtn = document.getElementById("tableBtn");
+
+//------------------Insert Data Function  -------------------//
+function insertData(){
+//set makes the rollbox value the unique id if the same rollbox value is entered its overwritten
+  set(ref(db, "TheStudents/"+ rollbox.value),{
+  //push will add a unique value to the DB
+  //push(ref(db, "TheStudents/"),{
+    NameofStu: namebox.value,
+    RollNumber: rollbox.value,
+    Section: secbox.value,
+    Gender: genderbox.value
+  })
+  .then(()=>
+          {alert("Data stored successfully");
+})
+.catch((error)=>
+          {alert("Error"+error);
+
+});
+}
+
+//------------------UPDATE FUNCTION--------------------------//
+function updateData(){
+  update(ref(db, "TheStudents/"+ rollbox.value),{
+
+    NameofStu: namebox.value,
+    RollNumber: rollbox.value,
+    Section: secbox.value,
+    Gender: genderbox.value
+  })
+  .then(()=>
+          {alert("Data updated successfully");
+})
+.catch((error)=>
+          {alert("Error"+error);
+
+});
+}
+//------------------SELECT  FUNCTION--------------------------//
+function selectData(){
+//A data snaphot contains data from a specific location
+const dbref = ref(db);
+get(child(dbref,"TheStudents/"+rollbox.value)).then((snapshot)=>{
+  if (snapshot.exists()){
+  namebox.value = snapshot.val().NameofStu;
+  secbox.value = snapshot.val().Section;
+  genderbox.value = snapshot.val().Gender;
+
+  }
+  else {
+    alert("No data found");
+  }
+})
+  .catch((error)=>
+            {alert("Error"+error);
+});
+
+}
+//------------------DELETE FUNCTION--------------------------//
+function removeData(){
+  remove(ref(db, "TheStudents/"+ rollbox.value),{
+    NameofStu: namebox.value,
+    RollNumber: rollbox.value,
+    Section: secbox.value,
+    Gender: genderbox.value
+  })
+  .then(()=>
+          {alert("Data removed successfully");
+})
+.catch((error)=>
+          {alert("Error"+error);
+
+});
+}
+
+
+//------------------FILLING THE TABLE FUNCTION--------------------------//
+var stdNo = 0;
+var tbody = document.getElementById('tbody1');
+function AddItemToTable(name,roll,sec,gen){
+  let trow = document.createElement('tr');
+  let td1 = document.createElement('td');
+  let td2 = document.createElement('td');
+  let td3 = document.createElement('td');
+  let td4 = document.createElement('td');
+  let td5 = document.createElement('td');
+
+  td1.innerHTML=++stdNo;
+  td2.innerHTML=name;
+  td3.innerHTML=roll;
+  td4.innerHTML=sec;
+  td5.innerHTML=gen;
+
+  trow.appendChild(td1);
+  trow.appendChild(td2);
+  trow.appendChild(td3);
+  trow.appendChild(td4);
+  trow.appendChild(td5);
+  tbody.appendChild(trow);
+}
+function AddAllItemsToTable(TheStudents){
+  stdNo=0;
+  tbody.innerHTML="";
+  TheStudents.forEach(element => {
+    AddItemToTable(element.NameofStu, element.RollNumber, element.Section, element.Gender);
+  });
+}
+//------------------GET ALL DATA ONCE NEED TO REFRESH TO LOAD DATA-------------------------//
+function GetAllDataOnce(){
+  const dbref = ref(db);
+  get(child(dbref, "TheStudents"))
+  .then((snapshot)=>{
+    var students=[];
+    snapshot.forEach(childSnapshot =>{
+      students.push(childSnapshot.val());
+
+    });
+    AddAllItemsToTable(students);
+  });
+}
+//------------------GET REALTIME DATA -------------------------//
+
+
+ function GetDataRealTime(){
+   const dbref = ref(db,"TheStudents");
+   onValue(dbref,(snapshot)=>{
+     var students=[];
+     snapshot.forEach(childSnapshot => {
+       students.push(childSnapshot.val());
+     });
+     AddAllItemsToTable(students);
+   });
+ }
+
+//------ THIS WILL LOAD WHATEVER FUNCTION ON PAGE LOAD ------------//
+window.onload = (GetDataRealTime());
+
+
+//------------------Assign Events to buttons -------------------//
+// when insert button is clicked run the insertData function
+insertbtn.addEventListener("click", insertData);
+updatebtn.addEventListener("click", updateData);
+selectbtn.addEventListener("click", selectData);
+deletebtn.addEventListener("click", removeData);
+
+
+</script>
+
+</body>
+</html>
