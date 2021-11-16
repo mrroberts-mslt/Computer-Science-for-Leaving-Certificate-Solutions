@@ -7,4 +7,4 @@ record = {
     "docLN" :   "Doolittle"
 }
 
-myDB.post("doctors",record)
+myDB.post("/doctors/",record)
