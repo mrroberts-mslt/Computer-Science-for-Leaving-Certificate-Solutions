@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>Firebase Push</title>
+</head>
+
+<body>
+<input type="text" id="name" placeholder="name">
+<input type="text" id="mobile" placeholder="mobile">
+<input type="text" id="email" placeholder="email">
+
+<button type="button" id="button" onclick="insertRecord()">Submit</button>
+
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+<!-- this is needed too but its not included in the settings > connection in FB -->
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+<!-- connect to my js file-->
+<script src="firebasescript.js" type="module"></script>
+</html>
