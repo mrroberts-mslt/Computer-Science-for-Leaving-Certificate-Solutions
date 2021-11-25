@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>Firebase Push</title>
+<link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+	<h1>This will save your progress in the Python from Scratch Course</h1>
+<form>	
+<input type="text" id="name" placeholder="name"><br>
+<input type="text" id="email" placeholder="email"><br>
+<label for="module">Module Name:</label><br>
+<select id="module" name="module">
+  <option value="Introduction">Introduction</option>
+  <option value="1.First Steps">1.First Steps</option>
+  <option value="2.Built in Functions">2.Built in Functions</option>
+  <option value="3.Storing and using information">3.Storing and using information</option>
+  <option value="4.Creating Functions">4.Creating Functions</option>
+  <option value="5.Booleans">5.Booleans</option>
+  <option value="6.Branching">6.Branching</option>
+  <option value="7.Building better programs">7.Building better programs</option>
+  <option value="8.Iteration using while">8.Iteration using while</option>
+  <option value="9.Storing elements in a sequence">9.Storing elements in a sequence</option>
+  <option value="10.Iteration using for">10.Iteration using for</option>
+  <option value="11.Bundling information into objects">11.Bundling information into objects</option>
+  <option value="12.Structuring data">12.Structuring data</option>
+  <option value="13.Recursion">13.Recursion</option>
+</select><br>
+<label for="step">Select step:</label><br>
+<select id="step" name="step">
+  <option value="Step1">Step1</option>
+  <option value="Step2">Step2</option>
+  <option value="Step3">Step3</option>
+  <option value="Step4">Step4</option>
+  <option value="Step5">Step5</option>
+  <option value="Step6">Step6</option>
+  <option value="Step7">Step7</option>
+  <option value="Step8">Step8</option>
+  <option value="Step9">Step9</option>
+  <option value="Step10">Step10</option>
+  <option value="Step11">Step11</option>
+</select><br>
+
+
+<button type="button" id="button" onclick="insertRecord()">Submit</button>
+</form>
+
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase.js"></script>
+
+<!-- connect to my js file-->
+<script src="firebase.js"></script>
+</html>
+
+
+
+
+
