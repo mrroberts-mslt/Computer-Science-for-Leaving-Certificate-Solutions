@@ -38,10 +38,9 @@
     </div>
 
     <hr>
+  <!--Add more buttons here -->
     <button type="button" id="insertBtn" class="">Insert</button>
-    <button type="button" id="updateBtn" class="">Update</button>
-    <button type="button" id="selectBtn" class="">Select</button>
-    <button type="button" id="deleteBtn" class="">Delete</button>
+
     </form>
 </div>
 
@@ -81,11 +80,9 @@
   var secbox = document.getElementById("secBox");
   var genderbox = document.getElementById("genderBox");
 
-  //buttons
+  //buttons add yours here
   var insertbtn = document.getElementById("insertBtn");
-  var updatebtn = document.getElementById("updateBtn");
-  var selectbtn = document.getElementById("selectBtn");
-  var deletebtn = document.getElementById("deleteBtn");
+ 
 
 //------------------Insert Data Function - use set module -------------------//
 function insertData(){
@@ -108,6 +105,7 @@ function insertData(){
 }
 //------------------Assign Events to buttons -------------------//
 // when insert button is clicked run the insertData function
+//Add listeners for your other buttons
 insertbtn.addEventListener("click", insertData);
 </script>
 
