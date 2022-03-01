@@ -1,7 +1,6 @@
 class Login {
-// everything will go here
-    constructor(form, fields) 
-{
+    // everything will go here
+    constructor(form, fields) {
     this.form = form;
     this.fields = fields;
     this.validateonSubmit();
@@ -26,8 +25,7 @@ validateonSubmit() {
         });
         // if everything validates, error will be 0 and can continue
         if (error == 0) {
-            //do login api here or in this case, just submit the form and set a localStorage item
-            localStorage.setItem("auth", 1);
+            
             this.form.submit();
         }
     });
