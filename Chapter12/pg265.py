@@ -7,7 +7,7 @@ def thermostatModel(actual, target):
 tempOnorOff = thermostatModel(18,20)
 print(tempOnorOff)
 
-#Task1
+#Task1 Dice
 import random
 def dice(guess,roll):
     if guess == roll:
@@ -21,3 +21,19 @@ def user():
     randRoll = random.randint(1, 6)
     dice(userGuess,randRoll)
 user()
+
+
+#Task 2 Thermostat
+def thermostatModel(actual, target):
+    if actual < target:
+        return 1
+    else:
+        return 0
+
+def userTemp():
+    userT = int(input("Enter your desired temp: "))
+    tempOnorOff = thermostatModel(userT,20)
+    print(tempOnorOff)
+
+for i in range (5):
+    userTemp()
