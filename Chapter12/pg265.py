@@ -1,3 +1,13 @@
+#Thermostat
+def thermostatModel(actual, target):
+    if actual < target:
+        return 1
+    else:
+        return 0
+tempOnorOff = thermostatModel(18,20)
+print(tempOnorOff)
+
+#Task1
 import random
 def dice(guess,roll):
     if guess == roll:
