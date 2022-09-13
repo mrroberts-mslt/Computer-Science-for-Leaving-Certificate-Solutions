@@ -45,7 +45,7 @@ print ("ok you will need:" ,round(totalLiquid/vol),"cylinders")
 weightMoon = (75/100)*16.5
 print ("Weight on moon:", weightMoon)
 
-#working out lawn mowing
+#TASK 8 working out lawn mowing
 lGarden = 75
 wGarden = 55
 areaGarden = (lGarden*wGarden)
