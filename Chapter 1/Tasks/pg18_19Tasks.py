@@ -1,25 +1,26 @@
-#Tasks on page 10
-"""Sum difference and product"""
+#Tasks on page 18
+"""Task 2 Sum difference and product"""
 num1 = float(10)
 num2 = float(5)
 print ("Sum:",num1+num2, "Difference:", num1-num2, "Product:", num1*num2)
 
+#Task 3
 print("Average:", (num1+num2)/2,"Remainder or Modulus:", num1%num2, "To the power of:", num1**num2)
 
-#Tasks on page 11
+#Tasks on page 19
 
-#temp conversion
+#Task 4 temp conversion
 chicagoTemp = int(87)
 celsiusTemp = ((5/9)*(chicagoTemp-32))
 answer = round(celsiusTemp)
 print (answer)
 
-#fly to singapore
+#Task 5 fly to singapore
 distanceKm = int(7136*1.60935)
 cost = (900*distanceKm)
 print (cost)
 
-# Water cylinder
+#Task 6 Water cylinder
 h=10
 r=5
 pi=3.14
@@ -39,7 +40,7 @@ totalLiquid = int(input("Enter the amount of liquid you need to carry:"))
 print ("ok you will need:" ,round(totalLiquid/vol),"cylinders")
 """
 
-#weight on earth / moon
+#Task 7 weight on earth / moon
 
 weightMoon = (75/100)*16.5
 print ("Weight on moon:", weightMoon)
