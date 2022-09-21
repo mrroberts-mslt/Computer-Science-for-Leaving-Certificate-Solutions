@@ -38,3 +38,16 @@ ascii = ord(key1)
 print (ascii)
 
 #Task 6
+unitsUsed = 684
+costPerUnit = 0.19
+unitCost = unitsUsed * costPerUnit
+standingCharge = 26.20
+totalDue = unitCost + standingCharge
+print(totalDue)
+
+#convert to input
+unitsUsed = int(input("Enter units used per month: "))
+costPerUnit = 0.30
+unitCost = unitsUsed * costPerUnit
+totalDue = unitCost + standingCharge
+print(totalDue)
