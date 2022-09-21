@@ -51,3 +51,15 @@ costPerUnit = 0.30
 unitCost = unitsUsed * costPerUnit
 totalDue = unitCost + standingCharge
 print(totalDue)
+
+#task7
+fish = 4.50
+chips = 2.80
+orderFish = int(input("Enter the number of Fish: "))
+orderChips = int(input("Enter the number of chips: "))
+totalAmt = (orderFish * fish) + (orderChips * chips)
+print("The order is for", orderFish,"fish and", orderChips, "chips. The total due is: €",round(totalAmt,2))
+vat = 0.09
+print("Yo Al you owe the tax man", round(totalAmt*vat,2),"on that last order")
+
+#task8
