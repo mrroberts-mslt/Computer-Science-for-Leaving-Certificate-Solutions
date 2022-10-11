@@ -4,9 +4,9 @@ for character in inputText:
     
 #character is just a variable name not a keyword
     
-sentance = input("Enter a sentance: ")
+sentence = input("Enter a sentence: ")
 spaceCount = 0
-for character in sentance:
+for character in sentence:
     if character == " ":
         spaceCount+=1
 wordCount = spaceCount +1
