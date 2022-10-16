@@ -82,4 +82,4 @@ while counter < len(sentence):
     counter+=1
 print(vowelCount)
 
-
+#end
