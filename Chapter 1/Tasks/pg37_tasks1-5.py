@@ -1,3 +1,19 @@
+#Task 1
+for i in range(1,11):
+    print(i)
+
+number = 0
+while number <=10:
+    print(number)
+    number+=1
+
+#Task 2
+enterNum = int(input("Enter a number: "))
+enterNum+=1
+for i in range(1,enterNum,2):
+    print(i)
+
+    
 #Task 3 Solution
 
 sentence = input("enter a sentence: ")
@@ -8,6 +24,38 @@ while counter < len(sentence):
         vowelCount +=1
     counter+=1
 print(vowelCount)
+
+
+#Task 4
+myPhrase = input("Enter a sentence to reverse: ")
+reversePhrase=""
+for i in myPhrase:
+    reversePhrase = i + reversePhrase
+print(reversePhrase)
+
+#Task5
+sentence = input("Enter a sentence: ")
+letter = input(str("Enter a letter: "))
+charCount = 0
+for character in sentence:
+    if character == letter:
+        charCount+=1
+print(charCount)
+
+#Task 5
+mySent = input("Yes enter something else please: ")
+char = input("Enter a single Char: ")
+count=0
+charCount = 0
+while count < len(mySent):
+    if mySent[count] == char:
+        charCount+=1
+    count+=1
+print(char,"Found", charCount, "Times")
+
+
+
+
 
 #Task 3 using a list
 sentence = input("enter a sentence: ")
@@ -33,3 +81,5 @@ while counter < len(sentence):
         print(sentence[counter])
     counter+=1
 print(vowelCount)
+
+
