@@ -54,9 +54,6 @@ while count < len(mySent):
 print(char,"Found", charCount, "Times")
 
 
-
-
-
 #Task 3 using a list
 sentence = input("enter a sentence: ")
 counter = 0
