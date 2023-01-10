@@ -1,4 +1,4 @@
-file = open("myFirstTxtFile.txt" , "w")
+file = open("myFile.txt" , "w")
 #file is a variable name. Two arguments are passed into the function
 #first one is the name of the file and is a .txt extension
 #second one "w" refers to write to this file
