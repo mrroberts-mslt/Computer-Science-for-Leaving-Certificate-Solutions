@@ -1,11 +1,15 @@
-#Needs correcting or use list comprehension
-file = open("numbers.csv", "r")
+file = open("number.csv", "r")
 dataIn = file.read()
 file.close()
 myList = dataIn.split(",")
-print (len(myList))
-myList = []
-for i in range(len(myList)):
-    i = float(i)
-    myList.append(i)
+#only need this line if there is a blank value in the last column
+#myList.remove(myList[-1])
 print(myList)
+#make a new List to capture the float data
+floatList = []
+for i in myList:
+    floatList.append(float(i))
+    print(i)
+   
+
+print(floatList)
