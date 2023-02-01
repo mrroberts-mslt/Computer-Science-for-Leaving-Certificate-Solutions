@@ -1,3 +1,12 @@
+#Challenge! Convert the original RPS game below to make it computer v computer then see which result is the most likely to win? R,P, S?
+#original rps code from https://realpython.com/python-rock-paper-scissors/
+#Key skills: 
+#Predict the outcome of the game / program below
+#Change the code to make user computer generated random choice. 
+#Use a for loop to run the game 100 times, 
+#Append results to a csv file, 
+#Read the CSV file into Python and do some statistics on the results, e.g Mode, Frequency, Total plays 
+
 import random
 
 user_action = input("Enter a choice (rock, paper, scissors): ")
