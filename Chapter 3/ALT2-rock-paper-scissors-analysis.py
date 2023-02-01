@@ -7,20 +7,15 @@ for i in range(100):
     user_action = random.choice(possible_actions)
     computer_action = random.choice(possible_actions)
     print(f"\nUser chose {user_action}, computer chose {computer_action}.\n")
-
     if user_action == computer_action:
         print(f"Both players selected {user_action}. It's a tie!")
-        file.write("Draw,")
-        
-        
+        file.write("Draw,")       
     elif user_action == "rock":
         if computer_action == "scissors":
             print("Rock smashes scissors! You win!")
             file.write("Rock,")
-
         else:
             print("Paper covers rock! You lose.")
-            
     elif user_action == "paper":
         if computer_action == "rock":
             print("Paper covers rock! You win!")
@@ -31,7 +26,6 @@ for i in range(100):
         if computer_action == "paper":
             print("Scissors cuts paper! You win!")
             file.write("Scissors,")
-        
         else:
             print("Rock smashes scissors! You lose.")
     file.close()
