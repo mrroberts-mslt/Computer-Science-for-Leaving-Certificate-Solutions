@@ -1,1 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form to Firebase</title>
+  
+</head>
+<body>
 
+    <h1>User Registration</h1>
+    
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age"><br><br>
+
+        <label for="occupation">Occupation:</label>
+        <select id="occupation" name="occupation">
+            <option value="teacher">Teacher</option>
+            <option value="student">Student</option>
+            <option value="other">Other</option>
+        </select><br><br>
+
+        <button id="insertBtn">Submit</button>
+
+<script src="script.js" type="module"></script>
+
+</body>
+
+</html>
