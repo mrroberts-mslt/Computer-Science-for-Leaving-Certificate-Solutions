@@ -1,3 +1,5 @@
+
+
 // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
@@ -44,4 +46,38 @@
 
   });
   }
+
+//Show the Data
+
+const dataList = document.getElementById('data-list');
+const dbref = ref(getDatabase());
+
+function displayRecords(){
+get(child(dbref, 'users')).then((snapshot) => {
+
+    dataList.innerHTML = ''; // Clear previous data
+
+    snapshot.forEach((childSnapshot) => {
+        const data = childSnapshot.val();
+        const listItem = document.createElement('li');
+        listItem.textContent = data.name;
+        dataList.appendChild(listItem);
+    });
+});
+}
+  
+
+
+
 insertBtn.addEventListener("click", insertData);
+//_____Btn.addEventListener("click", _________);
+
+//Tasks
+//1. Change the Firebase references to your database
+//2. Complete the eventlistener on line 73
+//3. On line 65 concatenate age and occupation to the list output using: +" "+data.age;
+//4. Can you get the html to output something other than a list?
+//5. Can you add more form fields that push into the database?
+//6. Can you add javascript to make the fields required
+
+
