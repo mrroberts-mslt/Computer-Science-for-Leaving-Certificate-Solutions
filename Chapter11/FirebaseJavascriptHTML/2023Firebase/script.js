@@ -78,6 +78,6 @@ insertBtn.addEventListener("click", insertData);
 //3. On line 65 concatenate age and occupation to the list output using: +" "+data.age;
 //4. Can you get the html to output something other than a list?
 //5. Can you add more form fields that push into the database?
-//6. Can you add javascript to make the fields required
+//6. Use ChatGPT to help you add javascript to make the name field required
 
 
