@@ -75,9 +75,10 @@ insertBtn.addEventListener("click", insertData);
 //Tasks
 //1. Change the Firebase references to your database
 //2. Complete the eventlistener on line 73
-//3. On line 65 concatenate age and occupation to the list output using: +" "+data.age;
+//3. On line 65 concatenate age and occupation to the list output using: +" "+
 //4. Can you get the html to output something other than a list?
 //5. Can you add more form fields that push into the database?
-//6. Use ChatGPT to help you add javascript to make the name field required
+//6. Use ChatGPT to help you add javascript to make the name field required.
+//7. Comment the code with your own explanations
 
 
