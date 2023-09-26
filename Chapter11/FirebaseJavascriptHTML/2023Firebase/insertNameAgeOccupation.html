@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-    <link href="style.css" rel="stylesheet" type="text/css" />
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form to Firebase</title>
-  
-</head>
-<body>
+<html>
 
-    <h1>User Registration</h1>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+   <h1>User Registration</h1>
     
         <label for="name">Name:</label>
         <input type="text" id="name" name="name"><br><br>
@@ -25,9 +25,14 @@
         </select><br><br>
 
         <button id="insertBtn">Submit</button>
+        <button id="selectBtn">Show Data</button>
 
-<script src="script.js" type="module"></script>
+  <h1>Database Content</h1>
+    <ul id="data-list"></ul>
 
+                  
+  
+  <script src="script.js" type="module"></script>
 </body>
 
 </html>
