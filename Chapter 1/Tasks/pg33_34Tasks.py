@@ -7,7 +7,7 @@ total = 0
 while (num1 < 1500):
         total = num1 + total
         num1+=1
-        print(num1)    
+        print(total)    
 print("Val now = ",total)
 
 #task2
