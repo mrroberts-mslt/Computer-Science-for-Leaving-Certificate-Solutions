@@ -4,7 +4,7 @@
 #task1
 num1 = 1000
 total = 0
-while (num1 < 1500):
+while (num1 <= 1500):
         total+=num1
         ##Same as saying
         #total = num1 + total
