@@ -9,6 +9,8 @@ while (num1 < 1500):
         ##Same as saying
         #total = num1 + total
         num1+=1
+        ##Same as saying
+        #num1 = num1 + 1
         print(total)    
 print("Val now = ",total)
 
