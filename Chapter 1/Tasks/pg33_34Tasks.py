@@ -2,12 +2,13 @@
 #develop a program to add up the numbers between 1000 and 1500. use a while loop
 
 #task1
-counter = 1000
-while (counter <1500):
-    print (counter)
-    counter+=500
-    
-print("Val 1 now = ",counter)
+num1 = 1000
+total = 0
+while (num1 < 1500):
+        total = num1 + total
+        num1+=1
+        print(num1)    
+print("Val now = ",total)
 
 #task2
 counter = 0
