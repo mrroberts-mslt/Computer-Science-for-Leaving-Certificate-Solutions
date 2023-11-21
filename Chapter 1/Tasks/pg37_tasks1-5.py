@@ -33,6 +33,16 @@ for i in myPhrase:
     reversePhrase = i + reversePhrase
 print(reversePhrase)
 
+#Task 4 other solution
+original_string = "Hello, World!"
+reversed_string = ""
+
+for i in range(len(original_string) - 1, -1, -1):
+    reversed_string += original_string[i]
+
+print("Original String:", original_string)
+print("Reversed String:", reversed_string)
+
 #Task5
 sentence = input("Enter a sentence: ")
 letter = input(str("Enter a letter: "))
