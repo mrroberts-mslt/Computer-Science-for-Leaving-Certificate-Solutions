@@ -63,12 +63,12 @@ if (result != len(myList)):
 else:
     print("%d not found. Return value is %d" %(key, result))
 
-#==============BINARY SEARCH USING A FUNCTION =====================
+#==============BINARY SEARCH 1 USING A FUNCTION =====================
 #EXPLANATION - Binary Search requires the list to be sorted first.
 #It then takes the middle value and then only searches on the split upper or lower half
 #If the key happens to be the middle value then it stops the search
 #It continues to find the middle value in each split and only searches in the relevant upper or lower half until it finds the value
-#
+# Remember it will return the index value of the item in a SORTED list so in this case 31 is found  at INDEX 3 not INDEX 5
 
 #first order it
 myList = [85,24,63,45,17,31,96,17]
@@ -94,32 +94,37 @@ def binarySearch(listIn, key):
 #Call the function
 print(binarySearch(myList,31))
 
-#Binary Search 2
-def binary_search(v, L):
+#==============BINARY SEARCH 2 USING A FUNCTION AND DIFFERENT LOGIC =====================
+def binary_search(k, L):
 #set the lowest index
     low = 0
-#set the highest index -1
+#set the highest index -1 in this case 16 - 1 = 15
     high = len(L)-1
 
     while (low <= high):
-#floor divide to get a int
+#floor divide to get a int 0+15 = 15 // 2 = 7 so mid = INDEX 7 on first iteration which has a value of 14
         mid = (low+high)//2
-#check if the value (14) at position mid (7) is equal to v
-        if L[mid] == v:
+#if check if the value (14) at position mid (7) is equal to k in this case FALSE
+#elif the value at List index mid is less than key value set the low value to mid + 1 
+#In this case if 14 is less than 22 (True) Set Low to 7 + 1  = INDEX 8 which has a value of 17
+#By the second iteration of the loop L[mid] is greater than 22 (25) so the else condition is invoked seeting the high value to 11-1 INDEX 10
+#THE LOOP CONTINUES UNTIL L[mid] == k
+        if L[mid] == k:
             return mid
-        elif L[mid] < v:
+        elif L[mid] < k:
             low = mid + 1
         else:
             high = mid - 1
 
     return len(L)
-# Driver code ...
-keys = [2, 4, 5, 7, 8, 9, 12, 14, 17, 19, 22, 25, 27, 28, 33, 37]
-argument = int(input("Enter a target value: "))
 
-result = binary_search(argument, keys)
+myList = [2, 4, 5, 7, 8, 9, 12, 14, 17, 19, 22, 25, 27, 28, 33, 37]
+#search for value 22
+key = int(input("Enter a target value: "))
+
+result = binary_search(key, myList)
 #check if result is not equal to 15 then the key has been found
-if (result != len(keys)):
-    print("%d found at position %d" %(argument, result))
+if (result != len(myList)):
+    print("%d found at position %d" %(key, result))
 else:
-    print("%d not found. Return value is %d" %(argument, result))
+    print("%d not found. Return value is %d" %(key, result))
