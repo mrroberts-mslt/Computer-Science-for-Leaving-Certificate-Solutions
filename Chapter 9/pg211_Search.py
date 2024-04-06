@@ -53,7 +53,7 @@ def linearSearch(k, L):
         i = i + 1
     return i # unsuccessful
 
-myList = [15, 4, 41, 13, 24, 14, 12, 21]
+myList = [85,24,63,45,17,31,96,17]
 key = int(input("Enter a target value: "))
 
 result = linearSearch(key, myList)
@@ -63,11 +63,16 @@ if (result != len(myList)):
 else:
     print("%d not found. Return value is %d" %(key, result))
 
-######################binary search##########################
+#==============BINARY SEARCH USING A FUNCTION =====================
+#EXPLANATION - Binary Search requires the list to be sorted first.
+#It then takes the middle value and then only searches on the split upper or lower half
+#If the key happens to be the middle value then it stops the search
+#It continues to find the middle value in each split and only searches in the relevant upper or lower half until it finds the value
+#
 
 #first order it
+myList = [85,24,63,45,17,31,96,17]
 myList.sort()
-
 
 def binarySearch(listIn, key):
     first = 0
@@ -86,6 +91,7 @@ def binarySearch(listIn, key):
             first = middle +1
     return -1
 
+#Call the function
 print(binarySearch(myList,31))
 
 #Binary Search 2
