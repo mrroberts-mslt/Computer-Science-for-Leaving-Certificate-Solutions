@@ -1,9 +1,8 @@
 #Searching and Sorting algorithms
-myList = [85,24,63,45,17,31,96,17]
-#print(myList[4])
-#print(len(myList))
 #look for the key 17
-
+#===========LINEAR SEARCH SIMPLE EXAMPLE=================
+#EXPLANATION The key location is 7 because it first finds it at INDEX 4 then continues to search and then finds it at INDEX 7
+myList = [85,24,63,45,17,31,96,17]
 key = 17
 for i in range(len(myList)):
     if myList[i] == key:
@@ -12,10 +11,12 @@ for i in range(len(myList)):
 print("Key location: ", location)
 
 # What if same number is twice in the list?
-#The key location is 7 because it first finds it at 4 then continues to search and then finds it at 7
+
 #Use break to find first number then exit the loop
 
-#Reverse the list search to find the value 4
+#===========LINEAR SEARCH REVERSE EXAMPLE=================
+#Reverse the list search to print INDEX 4
+#EXPLANATION The key location is 4 because it first finds it at INDEX 7 then continues to search and then finds it at INDEX 4
 #len(myList)-1: This is the start parameter of the range function. Since range starts at this number and goes down to, but not including, the stop parameter, len(myList)-1 ensures the loop starts at the last index of myList. Lists in Python are zero-indexed, so the last item's index is len(myList) - 1.
 #-1 (second occurrence): This is the stop parameter. In Python, range includes the start parameter but excludes the stop parameter. Here, -1 is used to ensure the loop goes down to index 0. Since range is exclusive of the stop parameter, setting it to -1 ensures that the index 0 is included in the iteration.
 #-1 (third occurrence): This is the step parameter. It determines the increment (or in this case, decrement) between each i in the loop. A step of -1 means the loop will count backwards, reducing the index by 1 each time, which is useful for iterating over a list in reverse order.
@@ -28,8 +29,9 @@ for i in range(len(myList)-1,-1,-1):
 print("Key location: ", location)
 
 # What if the number is not in the list?
-#Linear Search in function
-# The function is more efficient because the return part will stop the search as soon as the key is found
+
+#===========LINEAR SEARCH IN A FUNCTION EXAMPLE (BEST PRACTICE)=================
+#EXPLANATION The function is more efficient because the return part will stop the search as soon as the key is found if the key is not found it returns -1
 
 myList = [85,24,63,45,17,31,96,17]
 def linearSearch(listIn,key):
@@ -41,25 +43,25 @@ def linearSearch(listIn,key):
         #print("Key found in :", [i])
 print(linearSearch(myList,17))
 
-#Linear search example 2 
+#===========LINEAR SEARCH IN A FUNCTION EXAMPLE (using a while loop)================= 
 
-def linearSearch(v, L):
+def linearSearch(k, L):
     i = 0
     while i < len(L): # more?
-        if L[i] == v: # match?
+        if L[i] == k: # match?
             return i # successful
         i = i + 1
     return i # unsuccessful
 
-keys = [15, 4, 41, 13, 24, 14, 12, 21]
-argument = int(input("Enter a target value: "))
+myList = [15, 4, 41, 13, 24, 14, 12, 21]
+key = int(input("Enter a target value: "))
 
-result = linearSearch(argument, keys)
+result = linearSearch(key, myList)
 
-if (result != len(keys)):
-    print("%d found at position %d" %(argument, result))
+if (result != len(myList)):
+    print("%d found at position %d" %(key, result))
 else:
-    print("%d not found. Return value is %d" %(argument, result))
+    print("%d not found. Return value is %d" %(key, result))
 
 ######################binary search##########################
 
