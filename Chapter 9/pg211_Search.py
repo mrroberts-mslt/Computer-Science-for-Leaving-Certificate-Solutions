@@ -12,12 +12,26 @@ for i in range(len(myList)):
 print("Key location: ", location)
 
 # What if same number is twice in the list?
+#The key location is 7 because it first finds it at 4 then continues to search and then finds it at 7
 #Use break to find first number then exit the loop
+
+#Reverse the list search to find the value 4
+#len(myList)-1: This is the start parameter of the range function. Since range starts at this number and goes down to, but not including, the stop parameter, len(myList)-1 ensures the loop starts at the last index of myList. Lists in Python are zero-indexed, so the last item's index is len(myList) - 1.
+#-1 (second occurrence): This is the stop parameter. In Python, range includes the start parameter but excludes the stop parameter. Here, -1 is used to ensure the loop goes down to index 0. Since range is exclusive of the stop parameter, setting it to -1 ensures that the index 0 is included in the iteration.
+#-1 (third occurrence): This is the step parameter. It determines the increment (or in this case, decrement) between each i in the loop. A step of -1 means the loop will count backwards, reducing the index by 1 each time, which is useful for iterating over a list in reverse order.
+myList = [85,24,63,45,17,31,96,17]
+key = 17
+for i in range(len(myList)-1,-1,-1):
+    if myList[i] == key:
+        location = i
+        #print("Key found in :", [i])
+print("Key location: ", location)
+
 # What if the number is not in the list?
-#        location = False
-
-
 #Linear Search in function
+# The function is more efficient because the return part will stop the search as soon as the key is found
+
+myList = [85,24,63,45,17,31,96,17]
 def linearSearch(listIn,key):
     for i in range(len(listIn)):
         if listIn[i] == key:
@@ -27,7 +41,7 @@ def linearSearch(listIn,key):
         #print("Key found in :", [i])
 print(linearSearch(myList,17))
 
-#Linear search example 2
+#Linear search example 2 
 
 def linearSearch(v, L):
     i = 0
