@@ -1,5 +1,5 @@
 #Searching and Sorting algorithms
-myList = [85,24,63,45,17,31,96,50]
+myList = [85,24,63,45,17,31,96,17]
 #print(myList[4])
 #print(len(myList))
 #look for the key 17
