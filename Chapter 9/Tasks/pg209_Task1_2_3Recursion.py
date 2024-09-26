@@ -1,13 +1,12 @@
 #more reading https://www.programiz.com/python-programming/examples/fibonacci-recursion
 #Task1
 def fibonacci():
-  term1 = 0
-  term2 = 1
-  count = 0
+  num1 = 0
+  num2 = 1
   for i in range(100):
-      result = term1+term2
-      term1 = term2
-      term2 = result
+      result = num1+num2
+      num1 = num2
+      num2 = result
       print(result)
       
 fibonacci()
