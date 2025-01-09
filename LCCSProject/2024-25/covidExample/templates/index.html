@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 Analytics</title>
+</head>
+<body>
+    <h1>COVID-19 Data Analytics in the USA</h1>
+    <form method="POST">
+        <label for="start_date">Start Date:</label>
+        <input type="date" id="start_date" name="start_date" value="{{ start_date }}">
+        <label for="end_date">End Date:</label>
+        <input type="date" id="end_date" name="end_date" value="{{ end_date }}">
+        <button type="submit">Update</button>
+    </form>
+    <h2>Daily New Cases</h2>
+    <img src="/static/graphs/line_chart.png" alt="Line Chart of New Cases">
+    <h2>Total Vaccinations</h2>
+    <img src="/static/graphs/bar_chart.png" alt="Bar Chart of Vaccinations">
+</body>
+</html>
