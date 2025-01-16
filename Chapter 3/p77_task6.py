@@ -1,48 +1,53 @@
-#task6 - not finished yet!
-salesPerson = ['Bob','Janet','Ellis','Tim','May',]
+#Step 1 make 2 empty lists
+salespeople = []
 sales = []
-for i in salesPerson:
-    file = open("sales.csv", "a")
-    sold = input("Enter sales €: ")
-    sold = sold + ","
-    file.write(sold)  
-    file.close()
-    file = open("salesperson.csv", "a")
-    sP = i + ","
-    file.write(sP)
-    file.close()
+numSalespeople = int(input("Enter the number of salespeople: "))
+
+# Step 2: Collect data for each salesperson
+
+for i in range(numSalespeople):
+
+    name = input("Enter salesperson's name: ")
+    sale = float(input("Enter total sales for" + name + " (in EUR): "))
+    salespeople.append(name)
+    sales.append(sale)
+   
+# Step 3: Save the updated data to CSV files
+
+namesFile = open("salespeople_names.csv", "w")
+
+for i in salespeople:
+    #ensures the CSV data is written in col not row
+    namesFile.write(i + "\n")
     
-    
-    
-print(sold+sP)
-  
+namesFile.close()
+
+salesFile = open("sales_data.csv", "w")
+
+for i in sales:
+    #The write() method expects a single string argument. If you try to pass a float (or any non-string type), Python will raise a TypeError.
+    salesFile.write(str(i) + "\n")
+salesFile.close()
+
+# Step 4: Display the sales data in a table format
+
+print("\nSales Report:")
+print("Name\t Sales (EUR)")
+
+print("-" * 30)
+
+for i in range(len(salespeople)):  # Single loop
+    name = salespeople[i]
+    sale = sales[i]
+    print(name,"\t", sale)
 
 
-file = open("sales.csv", "r")
-dataIn = file.read()
-file = open("salesperson.csv", "r")
-dataP = file.read()
+print("-" * 30)
 
+#Step 5: Display the total sales
 
-salesList = dataP.split(",")
-for i in salesList:
-    print(i)
+totalSales = sum(sales)
 
-totalList = dataIn.split(",")
-totalList.remove(totalList[-1])
-totalSales = [float(i) for i in totalList]
-total = sum(totalSales)
-print(total)
-
-# floatList = []
-# for i in totalList:
-#     i+=1
-#     floatList.append(float(i))
-#     i+2
-#     print(i)
-#    
-# 
-# print(floatList)
-
+print("Total Sales:",totalSales, "EUR")
 
 
