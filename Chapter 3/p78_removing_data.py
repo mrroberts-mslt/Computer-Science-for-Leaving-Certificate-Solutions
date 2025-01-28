@@ -40,3 +40,17 @@ def removeLT():
 removeLT()        
 print(numBS)
 
+#Method 4 by Luke Power - make 2 new lists
+numBS = [12, 45, 11, 78, 54, 2, -12, 10, -13, -14]
+valid = []
+invalid = []
+print (numBS)
+for i in ages:
+    if i < 0:
+        invalid.append(i)
+    else:
+        valid.append(i)
+print (numBS)
+print ("Valid =",valid)
+print ("Invalid =",invalid)
+
