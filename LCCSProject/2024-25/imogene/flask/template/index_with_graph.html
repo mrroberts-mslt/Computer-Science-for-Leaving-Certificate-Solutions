@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monkeypox Data - Spain & UK</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #333; }
+        .container { max-width: 800px; margin: auto; }
+        .stats { background: #f4f4f4; padding: 10px; border-radius: 5px; margin-bottom: 20px; }
+        .graph { text-align: center; }
+        img { width: 100%; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Monkeypox Data Summary (Spain & UK)</h1>
+        
+        <div class="stats">
+            <h2>Cases Data</h2>
+            <p><b>Max Cases:</b> {{ max_cases }}</p>
+            <p><b>Min Cases:</b> {{ min_cases }}</p>
+            <p><b>Total Cases:</b> {{ total_cases }}</p>
+            <p><b>Average Cases:</b> {{ average_cases }}</p>
+
+            <h2>Deaths Data</h2>
+            <p><b>Max Deaths:</b> {{ max_deaths }}</p>
+            <p><b>Min Deaths:</b> {{ min_deaths }}</p>
+            <p><b>Total Deaths:</b> {{ total_deaths }}</p>
+            <p><b>Average Deaths:</b> {{ average_deaths }}</p>
+        </div>
+
+<h2>Monkeypox Cases Over Time</h2>
+<div class="graph">
+    <img src="data:image/png;base64,{{ graph }}" alt="Cases Graph">
+</div>
+
+        <h3>Get JSON Data</h3>
+        <p>Access the API at <a href="/api/data">/api/data</a></p>
+    </div>
+</body>
+</html>
+
