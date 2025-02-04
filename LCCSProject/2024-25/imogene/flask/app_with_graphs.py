@@ -1,6 +1,10 @@
 from flask import Flask, render_template, jsonify
 import pandas as pd
-import csv
+import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.use('Agg')  # Prevents GUI error
+import io
+import base64
 
 app = Flask(__name__)
 
@@ -33,51 +37,73 @@ monthly_data = combined_df.groupby(['location', 'Year-Month']).sum().reset_index
 
 # Save cleaned data
 monthly_data.to_csv("monthly_cleaned_data.csv", index=False)
-combined_df.to_csv("cleaned_up_data.csv", index=False)
 
-# Read processed CSV data for API
-with open("monthly_cleaned_data.csv", "r") as file:
-    reader = csv.DictReader(file)
-    death_data = [float(row['total_deaths']) for row in reader if row['total_deaths'].replace('.', '', 1).isdigit()]
+def generate_plot():
+    plt.figure(figsize=(10, 5))
 
-with open("monthly_cleaned_data.csv", "r") as file:
-    reader = csv.DictReader(file)
-    case_data = [float(row['total_cases']) for row in reader if row['total_cases'].replace('.', '', 1).isdigit()]
+    # Convert columns to numeric
+    monthly_data["total_cases"] = pd.to_numeric(monthly_data["total_cases"], errors="coerce")
+    monthly_data["total_deaths"] = pd.to_numeric(monthly_data["total_deaths"], errors="coerce")
 
-# Calculate statistics
-max_deaths = max(death_data)
-min_deaths = min(death_data)
-total_deaths = sum(death_data)
-average_deaths = round(total_deaths / len(death_data), 2)
+    # Ensure Year-Month is a string
+    monthly_data["Year-Month"] = monthly_data["Year-Month"].astype(str)
 
-max_cases = max(case_data)
-min_cases = min(case_data)
-total_cases = sum(case_data)
-average_cases = round(total_cases / len(case_data), 2)
+    # Plot Spain and UK separately
+    spain = monthly_data[monthly_data["location"] == "Spain"]
+    uk = monthly_data[monthly_data["location"] == "United Kingdom"]
+
+    plt.plot(spain["Year-Month"], spain["total_cases"], marker='o', label="Spain", color="blue")
+    plt.plot(uk["Year-Month"], uk["total_cases"], marker='s', label="United Kingdom", color="red")
+
+    plt.xticks(rotation=45)
+    plt.xlabel("Year-Month")
+    plt.ylabel("Total Cases")
+    plt.title("Monthly Monkeypox Cases in Spain & UK")
+    plt.legend()
+
+    # Save plot to a bytes buffer
+    img = io.BytesIO()
+    plt.savefig(img, format='png', bbox_inches="tight")
+    img.seek(0)
+    plot_url = base64.b64encode(img.getvalue()).decode()
+    return plot_url
 
 
 @app.route('/')
 def home():
-    """Render homepage"""
+    """Render homepage with stats and graph"""
+    max_cases = monthly_data['total_cases'].max()
+    min_cases = monthly_data['total_cases'].min()
+    total_cases = monthly_data['total_cases'].sum()
+    average_cases = round(total_cases / len(monthly_data), 2)
+
+    max_deaths = monthly_data['total_deaths'].max()
+    min_deaths = monthly_data['total_deaths'].min()
+    total_deaths = monthly_data['total_deaths'].sum()
+    average_deaths = round(total_deaths / len(monthly_data), 2)
+
+    graph = generate_plot()
+
     return render_template('index.html', max_cases=max_cases, min_cases=min_cases, total_cases=total_cases,
                            average_cases=average_cases, max_deaths=max_deaths, min_deaths=min_deaths,
-                           total_deaths=total_deaths, average_deaths=average_deaths)
+                           total_deaths=total_deaths, average_deaths=average_deaths, graph=graph)
 
 
 @app.route('/api/data')
 def get_data():
     """Return JSON data"""
     return jsonify({
-        "max_cases": max_cases,
-        "min_cases": min_cases,
-        "total_cases": total_cases,
-        "average_cases": average_cases,
-        "max_deaths": max_deaths,
-        "min_deaths": min_deaths,
-        "total_deaths": total_deaths,
-        "average_deaths": average_deaths
+        "max_cases": monthly_data['total_cases'].max(),
+        "min_cases": monthly_data['total_cases'].min(),
+        "total_cases": monthly_data['total_cases'].sum(),
+        "average_cases": round(monthly_data['total_cases'].sum() / len(monthly_data), 2),
+        "max_deaths": monthly_data['total_deaths'].max(),
+        "min_deaths": monthly_data['total_deaths'].min(),
+        "total_deaths": monthly_data['total_deaths'].sum(),
+        "average_deaths": round(monthly_data['total_deaths'].sum() / len(monthly_data), 2),
     })
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5001)  # Change port number
+    app.run(debug=True, port=5001)  # Change port if necessary
+
