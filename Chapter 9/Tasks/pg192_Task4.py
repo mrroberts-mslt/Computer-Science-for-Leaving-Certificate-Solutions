@@ -1,21 +1,11 @@
-rowVal = int(input("Enter number of rows: "))
+# number of rows
+n = int(input("Enter number of rows: "))
 
-numPrinted = 0
-
-while numPrinted <= rowVal:
-    print("*" * numPrinted)
-    numPrinted += 1
-
-#Right Aligned
+for i in range(1, n + 1):      # outer loop for rows
+    for j in range(i):          # inner loop for stars
+        print("*", end="")      # print stars on same line
+    print()                     # move to next line
 
 
-rowVal = int(input("Enter number of rows: "))
-
-numPrinted = 1
-
-while numPrinted <= rowVal:
-    line = '*' * numPrinted  # Create a string of asterisks
-    print(line.rjust(rowVal))  # Right-align the string within a field of width 'rowVal'
-    numPrinted += 1
 
 
