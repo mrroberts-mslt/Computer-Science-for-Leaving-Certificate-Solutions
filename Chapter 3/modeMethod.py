@@ -1,4 +1,4 @@
-myList = []
+myList = [3,4,5,7,4,2]
 max_count = 0
 mode = ""
 for i in range(len(myList)):
@@ -12,5 +12,4 @@ for i in range(len(myList)):
         mode = myList[i]
 
 print("The most common result (mode) is:", mode)
-print("The number of", mode + "s is:", max_count)
-
+print("The number of", mode , "s is:", max_count)
