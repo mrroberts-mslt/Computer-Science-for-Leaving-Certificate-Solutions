@@ -63,3 +63,53 @@ vat = 0.09
 print("Yo Al you owe the tax man", round(totalAmt*vat,2),"on that last order")
 
 #task8
+
+word = input("Enter a 5 letter word: ")
+key = int(input("Enter key (0-25): "))
+
+letter1 = chr((ord(word[0]) - ord('a') + key) % 26 + ord('a'))
+letter2 = chr((ord(word[1]) - ord('a') + key) % 26 + ord('a'))
+letter3 = chr((ord(word[2]) - ord('a') + key) % 26 + ord('a'))
+letter4 = chr((ord(word[3]) - ord('a') + key) % 26 + ord('a'))
+letter5 = chr((ord(word[4]) - ord('a') + key) % 26 + ord('a'))
+
+encrypted = letter1 + letter2 + letter3 + letter4 + letter5
+
+print("Encrypted word:", encrypted)
+'''
+For the example:
+
+Enter a 5 letter word: hello
+Enter key (0-25): 5
+Encrypted word: mjqqt
+The important bit
+
+Take the first letter of hello, which is h:
+
+ord('h')
+
+gives 104.
+
+We subtract ord('a'), which is 97:
+
+104 - 97 = 7
+
+So h is position 7 if a = 0.
+
+Then add the key:
+
+7 + 5 = 12
+
+Position 12 is m.
+
+The % 26 is what makes the alphabet wrap around. For example, y with a key of 3:
+
+y = 24
+24 + 3 = 27
+27 % 26 = 1
+1 = b
+
+So:
+
+y + 3 → b
+'''
