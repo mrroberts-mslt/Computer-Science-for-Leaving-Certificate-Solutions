@@ -66,7 +66,8 @@ print("Yo Al you owe the tax man", round(totalAmt*vat,2),"on that last order")
 
 word = input("Enter a 5 letter word: ")
 key = int(input("Enter key (0-25): "))
-
+#chr converts the ASCII value back to a character
+#ord converts the letter value into ASCII
 letter1 = chr((ord(word[0]) - ord('a') + key) % 26 + ord('a'))
 letter2 = chr((ord(word[1]) - ord('a') + key) % 26 + ord('a'))
 letter3 = chr((ord(word[2]) - ord('a') + key) % 26 + ord('a'))
