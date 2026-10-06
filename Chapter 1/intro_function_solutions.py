@@ -43,7 +43,9 @@ def convertToKmh(speed):
 # 1. Get input from the user
 distance = int(input("Enter the distance travelled in metres: "))
 time = int(input("Enter the time it took to complete the journey in seconds: "))
-
+while time <= 0:
+    print("Error time must be greater than 0")
+    time = int(input("Please enter a valid time in seconds: "))
 # 2. Calculate the average speed
 avgSpeed = calculate(distance, time)
 print("The average speed is:", round(avgSpeed, 2), "m/s")
