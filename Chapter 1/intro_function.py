@@ -30,7 +30,7 @@ checkSpeedLimit(avgSpeed)
 Challenge 2: Travel Time Estimator
 Create a function that uses the calculated avgSpeed to predict how long it would take to travel a much longer distance (like a marathon: 42,195 meters).
 Hint: distance divided by speed
-Round to 2 dp
+Round to 1 dp
 '''
 
 '''Challenge 3: Convert to km/h
