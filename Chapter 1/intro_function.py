@@ -39,3 +39,7 @@ Hint: To convert m/s to km/h, multiply the speed by 3.6.
 Round to 2 dp
 '''
 
+'''Challenge 4: What could crash the programme?
+Can you fix?
+'''
+
