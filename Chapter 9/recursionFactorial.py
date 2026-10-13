@@ -22,4 +22,4 @@ def factorial(n):
 
 # Test the function 
 x = 5
-print(x, "! =", factorial(5)))
+print(x, "! =", factorial(x))
